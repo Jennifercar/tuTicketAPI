@@ -5,7 +5,7 @@ import { ROLES } from "../helpers/constantes";
 export interface IUsuario {
     nombre: string;
     email: string;
-    contraseña: string;
+    contrasena: string;
     rol?: string;
     code?: string;
     verified?: string;
@@ -21,7 +21,7 @@ const UserSchema = new Schema<IUsuario>({
         type: String,
         required: [true, "El correo es obligatorio"]
     },
-    contraseña: {
+    contrasena: {
         type: String,
         required: [true, "La contraseña es obligatoria"]
     },
@@ -40,7 +40,7 @@ const UserSchema = new Schema<IUsuario>({
 
 
 UserSchema.methods.toJSON = function() {
-    const {__v, contraseña, _id, code, ...usuario} = this.toObject();
+    const {__v, contrasena, _id, code, ...usuario} = this.toObject();
     return usuario
 }
 
