@@ -29,9 +29,6 @@ issuesPath: string
         await dbConnection();
     }
 
-    // aca instalo npm i cors
-// cors: es para que nadie se conecte a mi api y que no mande metodo http que yo noquiero que me manden
-//si hago un diploy de mi API uso cors
 
 middlewares(): void {
     this.app.use(express.json())
