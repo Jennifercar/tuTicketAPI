@@ -8,13 +8,13 @@ import { generarJWT } from "../helpers/generarJWT"
 
 export const registro = async (req: Request, res: Response) => {
 
-const {nombre, email, contrasena, rol}:IUsuario = req.body
+const {nombre, email, contraseña, rol}:IUsuario = req.body
 
-const usuario = new Usuario ({nombre, email, contrasena, rol});
+const usuario = new Usuario ({nombre, email, contraseña, rol});
 
 const salt = bcryptjs.genSaltSync();
 
-usuario.contrasena = bcryptjs.hashSync(contrasena,salt);
+usuario.contraseña = bcryptjs.hashSync(contraseña,salt);
 
 const adminKey = req.headers["admin-key"];
 
@@ -37,7 +37,7 @@ res.status(201).json({
 }
 export const login = async (req:Request, res:Response): Promise<void>=>{
 
-    const {email, contrasena} : IUsuario = req.body;
+    const {email, contraseña} : IUsuario = req.body;
 
     try {
         
@@ -50,7 +50,7 @@ export const login = async (req:Request, res:Response): Promise<void>=>{
             return
         }
 
-        const validarContraseña = bcryptjs.compareSync(contrasena, usuario.contrasena);
+        const validarContraseña = bcryptjs.compareSync(contraseña, usuario.contraseña);
 
         if(!validarContraseña) {
             res.status(401).json({
