@@ -30,14 +30,10 @@ issuesPath: string
     }
 
 
-middlewares(): void {
-    this.app.use(express.json())
-    this.app.use(cors({
-        origin: 'http://localhost:3000',
-        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-        credentials: true,
-      }));
-}
+    middlewares(): void {
+        this.app.use(express.json())
+        this.app.use(cors())
+    }
 
 
 routes(): void {
