@@ -74,7 +74,7 @@ export const login = async (req:Request, res:Response): Promise<void>=>{
     }
 }
 
-export const verifyUser = async (req: Request, res: Response) => {
+export const verificarUsuario = async (req: Request, res: Response) => {
 
     const {email, code} = req.body;
 
@@ -88,7 +88,7 @@ export const verifyUser = async (req: Request, res: Response) => {
             return;
         }
 
-        if(usuario.verified) {
+        if(usuario.verificado) {
             res.status(400).json({
                 msg: "El usuario ya esta correctamente verificado"
             });
@@ -104,7 +104,7 @@ export const verifyUser = async (req: Request, res: Response) => {
 
         await Usuario.findOneAndUpdate(
             {email},
-            {verified: true}
+            {verificado: true}
         );
 
         res.status(200).json({

@@ -8,7 +8,7 @@ export interface IUsuario {
     contraseña: string;
     rol?: string;
     code?: string;
-    verified?: string;
+    verificado?: string;
 };
 
 
@@ -32,7 +32,7 @@ const UserSchema = new Schema<IUsuario>({
     code: {
         type: String
     },
-    verified: {
+    verificado: {
         type: Boolean,
         default: false
     }

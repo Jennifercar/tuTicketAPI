@@ -5,11 +5,11 @@ export const existeEmail = async (email:string): Promise<void> => {
 
     const existeEmail: IUsuario | null = await Usuario.findOne({email});
 
-    if (existeEmail && existeEmail.verified) {
+    if (existeEmail && existeEmail.verificado) {
         throw new Error(`El correo ${email} ya está registrado`)
     }
 
-    if (existeEmail && !existeEmail.verified) {
+    if (existeEmail && !existeEmail.verificado) {
         await sendEmail(email, existeEmail.code as string)
         throw new Error(`El usuario ya está registrado. Se envío nuevamente el código de verificación a ${email}`)
     }
