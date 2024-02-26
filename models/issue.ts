@@ -4,7 +4,7 @@ export interface IIssue {
     title: String;
     description: String;
     priority: Number;
-    user: Types.ObjectId;
+    usuario: Types.ObjectId;
     createdAt: Date
 };
 
@@ -21,7 +21,7 @@ const IssueSchema = new Schema<IIssue>({
         type: Number,
         required: [true, "La prioridad es obligatoria"]
     },
-    user: {
+    usuario: {
         type: Schema.Types.ObjectId,
         ref: "Usuario",
         required: true

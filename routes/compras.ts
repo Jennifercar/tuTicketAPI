@@ -1,5 +1,5 @@
 import {Router} from "express"
-import { crearOrden, getOrdenes } from "../controllers/ordenes";
+import { crearCompra, getcompras } from "../controllers/compras";
 import validarJWT from "../middlewares/validarJWT";
 import { recolectarErrores } from "../middlewares/recoletarErrores";
 import { isverificado } from "../middlewares/validarVerificado";
@@ -15,7 +15,7 @@ router.get("/",
     recolectarErrores
 ]
 
-,getOrdenes)
+,getcompras)
 
 router.post("/",
     [
@@ -27,6 +27,6 @@ router.post("/",
       check("shippingDetails", "Los detalles de envío son obligatorios").not().isEmpty(),
       check("items", "El array de productos es obligatorio").not().isEmpty(),
     ],
-    crearOrden)
+    crearCompra)
 
 export default router

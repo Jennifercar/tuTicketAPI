@@ -16,9 +16,9 @@ interface IItem {
     title: String;
 }
 
-export interface IOrden {
+export interface ICompra {
     createdAT: Date;
- user: Types.ObjectId;
+ usuario: Types.ObjectId;
     price: Number;
     shippingCost: Number;
     item: IItem[];
@@ -27,9 +27,9 @@ export interface IOrden {
     total: Number;
 };
 
-export interface IOrden {
+export interface ICompra {
     createdAt: Date;
-    user: Types.ObjectId;
+    usuario: Types.ObjectId;
     price: Number;
     shippingCost: Number;
     items: IItem[];
@@ -38,12 +38,12 @@ export interface IOrden {
     total: Number
 };
 
-const OrderSchema = new Schema<IOrden>({
+const CompraSchema = new Schema<ICompra>({
     createdAt: {
         type: Date,
         default: Date.now,  
     },
-    user: {
+    usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
         required: true,
@@ -109,6 +109,6 @@ const OrderSchema = new Schema<IOrden>({
     },
 });
 
-const Orden: Model<IOrden> = model<IOrden>("Orden", OrderSchema);
+const Compra: Model<ICompra> = model<ICompra>("Compra", CompraSchema);
 
-export default Orden;
+export default Compra;

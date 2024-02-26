@@ -11,7 +11,7 @@ export const postNewIssue = async (req: Request, res: Response) => {
         description,
         priority,
         createdAt: new Date(),
-        user: usuarioId
+        usuario: usuarioId
     };
 
     const issue = new Issue(issueData);

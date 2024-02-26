@@ -12,7 +12,7 @@ export interface IUsuario {
 };
 
 
-const UserSchema = new Schema<IUsuario>({
+const UsuarioSchema = new Schema<IUsuario>({
     nombre: {
         type: String,
         required: [true, "El nombre es obligatorio"]
@@ -27,7 +27,7 @@ const UserSchema = new Schema<IUsuario>({
     },
     rol: {
         type: String,
-        default: ROLES.user
+        default: ROLES.usuario
     },
     code: {
         type: String
@@ -39,12 +39,12 @@ const UserSchema = new Schema<IUsuario>({
 });
 
 
-UserSchema.methods.toJSON = function() {
+UsuarioSchema.methods.toJSON = function() {
     const {__v, contraseña, _id, code, ...usuario} = this.toObject();
     return usuario
 }
 
 
-const Usuario: Model<IUsuario> = model<IUsuario>("Usuario", UserSchema);
+const Usuario: Model<IUsuario> = model<IUsuario>("Usuario", UsuarioSchema);
 
 export default Usuario;
