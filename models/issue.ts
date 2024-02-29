@@ -1,19 +1,19 @@
 import { Model, Schema, Types, model } from "mongoose";
 
 export interface IIssue {
-    title: String;
-    description: String;
+    name: String;
+    date: String;
     priority: Number;
     usuario: Types.ObjectId;
     createdAt: Date
 };
 
 const IssueSchema = new Schema<IIssue>({
-    title: {
+    name: {
         type: String,
         required: [true, "El título es obligatorio"]
     },
-    description: {
+    date: {
         type: String,
         required: [true, "La descripción es obligatoria"]
     },

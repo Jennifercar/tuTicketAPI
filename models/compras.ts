@@ -1,28 +1,27 @@
 import { Model, Schema, Types, model } from "mongoose";
 
-interface IshippingDatails{
-    name: String;
-    cellphone: String;
-    location: String;
-    address:String;
+interface IinformacionEnvio{
+    nombre: String;
+    celular: String;
+    localidad: String;
+    domicilio:String;
 
 }
 
 interface IItem {
-    desc: String;
+    date: String;
     id: Number;
-    price: Number;
+    precio: Number;
     quantity: Number;
-    title: String;
+    name: String;
 }
 
 export interface ICompra {
     createdAT: Date;
- usuario: Types.ObjectId;
-    price: Number;
-    shippingCost: Number;
+    usuario: Types.ObjectId;
+    precio: Number;
     item: IItem[];
-    shippingDatails: IshippingDatails;
+    informacionEnvio: IinformacionEnvio;
     status: String;
     total: Number;
 };
@@ -30,10 +29,9 @@ export interface ICompra {
 export interface ICompra {
     createdAt: Date;
     usuario: Types.ObjectId;
-    price: Number;
-    shippingCost: Number;
+    precio: Number;
     items: IItem[];
-    shippingDetails: IshippingDatails;
+    informacionEnvio: IinformacionEnvio;
     status: String;
     total: Number
 };
@@ -48,17 +46,14 @@ const CompraSchema = new Schema<ICompra>({
         ref: 'Usuario',
         required: true,
     },
-    price: {
+    precio: {
         type: Number,
         required: true,
     },
-    shippingCost: {
-        type: Number,
-        required: true,
-    },
+    
     items: {
         type: [{
-            desc: {
+            date: {
                 type: String,
                 required: true,
             },
@@ -66,7 +61,7 @@ const CompraSchema = new Schema<ICompra>({
                 type: Number,
                 required: true,
             },
-            price: {
+            precio: {
                 type: Number,
                 required: true,
             },
@@ -74,27 +69,27 @@ const CompraSchema = new Schema<ICompra>({
                 type: Number,
                 required: true,
             },
-            title: {
+            name: {
                 type: String,
                 required: true,
             },
         }],
         required: true,
     },
-    shippingDetails: {
-        name: {
+    informacionEnvio: {
+        nombre: {
 			type: String,
 			required: true,
 		},
-		cellphone: {
+		celular: {
 			type: String,
 			required: true,
 		},
-		location: {
+		localidad: {
 			type: String,
 			required: true,
 		},
-		address: {
+		domicilio: {
 			type: String,
 			required: true,
 		},

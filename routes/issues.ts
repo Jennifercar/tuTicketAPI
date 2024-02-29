@@ -12,8 +12,8 @@ router.post("/",
     [
        validarJWT,
         isAdmin,
-        check("title", "El título es obligatorio").not().isEmpty(),
-        check("description", "La descripcion es obligatoriia").not().isEmpty(),
+        check("name", "El título es obligatorio").not().isEmpty(),
+        check("date", "La descripcion es obligatoriia").not().isEmpty(),
         check("priority", "La prioridad es obligatoria").not().isEmpty(),
         recolectarErrores
     ],

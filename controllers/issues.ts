@@ -3,12 +3,12 @@ import Issue, { IIssue } from "../models/issue";
 import { ObjectId } from "mongoose";
 
 export const postNewIssue = async (req: Request, res: Response) => {
-    const {title, description, priority}: IIssue = req.body;
+    const {name, date, priority}: IIssue = req.body;
     const usuarioId: ObjectId = req.body.usuarioConfirmado._id;
 
     const issueData = {
-        title,
-        description,
+        name,
+        date,
         priority,
         createdAt: new Date(),
         usuario: usuarioId
