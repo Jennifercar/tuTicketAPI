@@ -30,7 +30,7 @@ export interface ICompra {
     createdAt: Date;
     usuario: Types.ObjectId;
     precio: Number;
-    items: IItem[];
+    item: IItem[];
     informacionEnvio: IinformacionEnvio;
     status: String;
     total: Number
@@ -51,7 +51,7 @@ const CompraSchema = new Schema<ICompra>({
         required: true,
     },
     
-    items: {
+    item: {
         type: [{
             date: {
                 type: String,
