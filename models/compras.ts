@@ -14,6 +14,7 @@ interface IItem {
     precio: Number;
     quantity: Number;
     name: String;
+    cardImg: String;
 }
 
 export interface ICompra {
@@ -70,6 +71,10 @@ const CompraSchema = new Schema<ICompra>({
                 required: true,
             },
             name: {
+                type: String,
+                required: true,
+            },
+            cardImg: {
                 type: String,
                 required: true,
             },
