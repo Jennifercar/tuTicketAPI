@@ -18,7 +18,7 @@ interface IItem {
 }
 
 export interface ICompra {
-    createdAT: Date;
+    createdAt: Date;
     usuario: Types.ObjectId;
     precio: Number;
     item: IItem[];
@@ -78,6 +78,7 @@ const CompraSchema = new Schema<ICompra>({
                 type: String,
                 required: true,
             },
+            
         }],
         required: true,
     },
